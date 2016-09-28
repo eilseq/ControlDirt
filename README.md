@@ -11,6 +11,8 @@ Liveness is designed to create graphic widgets with multi-threading and network
 functionalities, to build custom and highly interactive applications that could be
 able to communicate with many computer music languages such as Supercollider, PureData, etc.
 
+NOTE: Until now was implemented just the Supercollider external
+
 ### Installation
 
 #### Dependencies
