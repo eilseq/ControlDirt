@@ -1,0 +1,5 @@
+1 - fare in modo che si possa condividere le risorse in rete (multithreading in network, con risorse e magari anche istanze condivise)
+
+2 - fare in modo che la sintassi <Classe@Padre1+Padre2+…> venga accettata. Questo comando KV non influenza la variabile Control.__name__, da dove vengono presi i nomi delle sottoclassi per permettere la creazione in remoto
+
+3 - fare in modo che non si possa intervenire sulle interfacce prima che tutti i thread di inizializzazione siano conclusi

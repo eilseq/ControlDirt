@@ -1,0 +1,78 @@
+#---- UIX DEFINITIONS
+<SimpleKnob>:
+	size:										200, 200
+	source:	  					 		'images/dial_background.png'
+	Label:
+		font_name: 					 	'fonts/andarilho-font.ttf'
+		font_size:					 	'20sp'
+		center:								root.center[0],root.center[1]
+		text:						 			str(root.control_id)[:6].upper()
+
+<ControlGrid@ControlSurface+GridLayout>:
+	cols:										4
+	canvas:
+		Rectangle:
+			source:							'images/main_background.png'
+			size:								root.size
+			pos:								root.pos
+
+<PresetButton>:
+	size_hint:							0.25, 1
+
+<PresetGrid@PresetSurface+GridLayout>:
+	size_hint: 							1, 0.13
+	cols:										4
+	rows:										1
+
+<Menubar@StackLayout+Widget>:
+	canvas:
+		Rectangle:
+			source:							'images/main_background.png'
+			size:								root.size
+			pos:								root.pos
+
+#---- APP STRUCTURE
+BoxLayout:
+	id:										 	app_layout
+	orientation:					 	'vertical'
+	#---- Menu Bar
+	Menubar:
+		size_hint: 						1, 0.1
+		orientation:					'rl-tb'
+		ImageButton:
+			size_hint:					0.07, 1
+			background_normal: 	'images/menubar_xy_normal.png'
+			background_down: 		'images/menubar_xy_pressed.png'
+			on_press:				 		sm.current = 'controller'
+		ImageButton:
+			size_hint:					0.07, 1
+			background_normal: 	'images/menubar_dial_normal.png'
+			background_down: 		'images/menubar_dial_pressed.png'
+			on_press:				 		sm.current = 'editor'
+	#---- Contents
+	ScreenManager:
+		id:									 	sm
+		#---- Preset Editing View
+		Screen:
+			name:								'editor'
+			BoxLayout:
+				orientation:			'vertical'
+				PresetGrid:
+					id:							preset_sur
+					PresetButton:
+						preset_id:		'top_left'
+					PresetButton:
+						preset_id:		'top_right'
+					PresetButton:
+						preset_id:		'bottom_left'
+					PresetButton:
+						preset_id:		'bottom_right'
+				ScrollView:
+					ControlGrid:
+						size_y:				app_layout.height-preset_sur.height
+		#---- Preset Interface View
+		Screen:
+			name:								'controller'
+			PresetMorphingXY:
+				preset_surface:		preset_sur
+				img_source:				'images/menubar_background.png'
