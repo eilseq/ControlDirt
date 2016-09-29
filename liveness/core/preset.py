@@ -20,11 +20,9 @@ from the python script::
 or in the attached KV file::
 
     Preset:
-        control_surface_id: "cs"
-        session_id:         "ss"
+        preset_id: "cs"
 
-The combination of this ID's is unique in the system. A preset exist in the
-connected control surface context.
+This ID's is unique in the preset surface where is collected.
 
 .. warning::
 :class:`Control` can be add only to :class:`ControlSurface` instances.

@@ -15,17 +15,14 @@ Usage
 This class inhert from Widget, so is possible to create new instances directly
 from the python script::
 
-    ctl = Control(control_id = "ctl", control_surface_id = "cs", session_id = "ss")
+    ctl = Control(control_id = "ctl")
 
 or in the attached KV file::
 
     Control:
         control_id:         "cs"
-        control_surface_id: "cs"
-        session_id:         "ss"
 
-The combination of this ID's is unique in the system. A control exist in the
-connected control surface context.
+This ID's is unique in the control surface where is collected.
 
 .. warning::
 :class:`Control` can be add only to :class:`ControlSurface` instances.

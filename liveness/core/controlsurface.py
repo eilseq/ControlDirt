@@ -20,8 +20,8 @@ by new threads, applying concurrence policies based on this hierarchy:
 	digraph {
 		"ControlSurface" -> "Session"		 [label="acquire resources / create a new one"]
 		"ControlSurface" -> "Control"		 [label="wait for"]
-		"PresetSurface"  -> "ControlSurface"  [label="wait for"]
-		"PresetSurface"  -> "Preset"		  [label="wait for"]
+		"PresetSurface"  -> "ControlSurface" [label="wait for"]
+		"PresetSurface"  -> "Preset"		 [label="wait for"]
 		"Preset"		 -> "Control"		 [label="wait for"]
 	}
 
