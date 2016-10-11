@@ -12,11 +12,16 @@ from liveness.uix 			import	ImageButton, XY, Knob
 
 #---- UIX DEFINITIONS
 class SimpleKnob(Control, Knob):
-	pass
+
+    def	on_press(self, touch):
+		self.value	            =	 self.angle/360.
+
+    def	on_value(self, instance, value):
+		self.angle	            =	 self.value*360.
+
 
 class PresetButton(Preset, ImageButton):
 
-	#Event Listener Methods Definition
 	def on_preset_id(self, instance, preset_id):
 		self.background_normal	=	'images/presetbar_'+str(self.preset_id)+'_normal.png'
 		self.background_down	=	'images/presetbar_'+str(self.preset_id)+'_pressed.png'
@@ -27,12 +32,13 @@ class PresetButton(Preset, ImageButton):
 	def on_short_press(self):
 		self.call_preset()
 
+
 class PresetMorphingXY(PresetMorphing, XY):
+
 	def on_press(self, touch):
-		self.interpolate_presets({  'top_left':	 self.top_left,
-									'top_right':	self.top_right,
-									'bottom_left':  self.bottom_left,
-									'bottom_right': self.bottom_right  })
+		self.interpolate_presets(self.evaluate_distances(touch))
+
+
 
 #---- APPLICATION BUILDER
 class XYMorphingApp(App):

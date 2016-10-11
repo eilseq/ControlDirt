@@ -32,32 +32,29 @@ Builder.load_string('''
 
 class Knob(Widget):
 
-	value			=	BoundedNumericProperty(0,min=0,max=1)
 	angle			=	NumericProperty(0)
-	source   	    =	StringProperty("")
+	source   		=	StringProperty("")
 
 	def evaluate_angle(self, touch):
 		y	=	touch.y-self.center[1]
 		x	=	touch.x-self.center[0]
-
 		if y == 0:
 			a	=	0
 		else:
 			a	=	math.atan2(x, y)
-
 		while a < 0.0:
 			a	=	a + (math.pi*2)
-
 		return math.degrees(a)
-
 
 	def	on_touch_down(self, touch):
 		if self.collide_point(touch.x, touch.y):
 			self.angle	=	self.evaluate_angle(touch)
+			self.on_press(touch)
 
 	def	on_touch_move(self, touch):
 		if self.collide_point(touch.x, touch.y):
 			self.angle	=	self.evaluate_angle(touch)
+			self.on_press(touch)
 
-	def	on_angle(self, instance, angle):
-		self.value	=	self.angle/360.
+	def	on_press(self, touch):
+		pass
