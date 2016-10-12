@@ -54,10 +54,13 @@ associate can communicate only with others component from the same session::
 from 	threading 				import 	 Condition
 from	kivy.clock				import   Clock
 from	kivy.lib.osc			import   oscAPI
+from 	socket 					import   *
 
 class Session:
 	#OSC server intialization - Broadcast listener on port 57121
 	oscAPI.init()
+	oscAPI.outSocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
+	oscAPI.outSocket.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
 	osc_listener 		=   oscAPI.listen('0.0.0.0', 57121)
 
 	#Session instances collector
@@ -115,7 +118,7 @@ class Session:
 		:attr:`value` can be any type of value accepted from OSC standard.
 		'''
 		completePath = "/" + str(self.session_id) + "/" + str(widget_id)
-		oscAPI.sendMsg(completePath,[value],'0.0.0.0', 57120)							#Broadcast Event
+		oscAPI.sendMsg(completePath,[value],'255.255.255.255', 57120)
 
 	def set_responder(self, widget_id, opcode, function):
 		'''Send the passed value over network to all devices in the same session.
@@ -126,5 +129,5 @@ class Session:
 		:attr:`function` the definition of function respond.
 		'''
 		completePath = "/" + str(self.session_id) + "/" + str(widget_id) + "/" + str(opcode)
-		oscAPI.bind(Session.osc_listener, function, completePath.strip())				#Broadcast Responder
+		oscAPI.bind(Session.osc_listener, function, completePath.strip())
 		Clock.schedule_interval(lambda *x: oscAPI.readQueue(Session.osc_listener), 0)

@@ -5,7 +5,7 @@ Liveness {
   *initClass {
 		//set-up broadcast communication
 		NetAddr.broadcastFlag	=	  true;
-		liveness_port         =   NetAddr("255.255.255.255", 57121);
+		liveness_port         =   NetAddr("192.168.1.255", 57121);
   }
 
 	*new {

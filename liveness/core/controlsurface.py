@@ -104,6 +104,7 @@ class ControlSurface(Widget):
 			self.session.connected_surfaces.setdefault(self.control_surface_id, self)
 			#set-up remote operations
 			self.session.set_responder(self.control_surface_id, 'add_control', self.add_control)
+			self.session.set_responder(self.control_surface_id, 'clear_controls', self.clear_controls)
 			#Controls container
 			self.connected_controls			=   {}
 			#Connected preset surface
@@ -146,6 +147,10 @@ class ControlSurface(Widget):
 		#evaluate the constructor
 		new_control		=   type_def(control_id = control_id, value = value)
 		self.add_widget(new_control)
+
+	def clear_controls(self, *incoming):
+		self.clear_widgets()
+		self.connected_controls = {}
 
 	#OSC Send Method Interfacing
 	def send(self, control_id, value):
