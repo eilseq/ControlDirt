@@ -1,7 +1,6 @@
 .DS_Store
 *.graffle
 *.pages
-*.pdf
 *.pyc
 *.txt
 *.key
