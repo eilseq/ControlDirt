@@ -1,9 +1,7 @@
 # Liveness UI
 
-Liveness UI is an open source library for developing distributed applications for
-musical and artistical prouposes. It is cross-platform (Linux/OSX/Windows/Android/iOS)
-and released under the terms of the `MIT License <https://en.wikipedia.org/wiki/MIT_License>`_.
-The point is create live interfaces, that could be created and changed in remote
+Liveness UI is an open source cross-platform library for developing distributed applications for
+musical and artistical prouposes. The point is create live interfaces, that could be created and changed in remote
 from others devices, and that could be send datas to every process in every part of the network.
 
 ## Getting Started
