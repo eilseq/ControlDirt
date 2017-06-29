@@ -12,14 +12,7 @@ from liveness.uix 			import	ImageButton, XY, Knob
 
 #---- UIX DEFINITIONS
 class SimpleKnob(Control, Knob):
-
-	def	on_press(self, touch):
-		self.value				=	 self.angle/360.
-
-	def	on_value(self, instance, value):
-		super(SimpleKnob, self).on_value(instance, value)
-		self.angle				=	 self.value*360.
-
+    pass
 
 class PresetButton(Preset, ImageButton):
 
