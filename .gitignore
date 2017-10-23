@@ -1,7 +1,23 @@
-.DS_Store
-*.graffle
-*.pages
-*.pyc
-*.txt
-*.key
+# Log file
+*.log
+
+# Compiled Classes #
+*.class
+
+# IntelliJ IDEA files
 *.idea
+
+# Docs files
+doc/
+
+# Package Files #
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*.iml
+*.jar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
