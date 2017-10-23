@@ -1,6 +1,6 @@
 # ControlDirt
 
-ControlDirt is an open source cross-platform application designed to facilitate the creation of dynamic user-interfaces on desktop and mobile devices by functional programming languages such as Haskell. The point is create live interfaces, that could be created and changed in remote from others devices, and that could be send datas to every process in every part of the network.
+ControlDirt is an open source cross-platform application designed to facilitate the creation of dynamic user-interfaces on desktop and mobile devices by functional programming languages such as Haskell or SuperCollider. The point is create live interfaces, that could be created and changed in remote from others devices, and that could be send datas to every process in every part of the network.
 
 ## Authors
 
