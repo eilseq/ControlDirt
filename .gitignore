@@ -4,4 +4,4 @@
 *.pyc
 *.txt
 *.key
-.idea/
+*.idea
