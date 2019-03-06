@@ -1,8 +1,8 @@
 # ControlDirt
 
-ControlDirt is a cross-platform application designed to facilitate the creation of dynamic user-interfaces by OSC messages coming from remote devices. The modular interface playground can create and modify user interfaces on on runtime while changing the control behavior, all using incoming remote messages. The goal of this project is to offer a dynamic user interface for live coding music frameworks such as SuperCollider, TidalCycles or FoxDot.
+ControlDirt is a modular UI playground to create and modify controls at runtime using remote OSC messages. The goal is to offer a dynamic interface for live coding music frameworks such as SuperCollider, TidalCycles or FoxDot.
 
-## Authors
+## Authors 
 
 * **Filippo Guida** - *Initial work* - [filippoguida](https://github.com/filippoguida)
 e-mail: filippo.guida@icloud.com
